@@ -3,6 +3,8 @@ const db = require('./db');
 const app = express();
 const cors = require('cors');
 
+/* mysql://root:pGHkGMtjlbeYnUqAFJbMIOOdwAkqkpJY@junction.proxy.rlwy.net:13624/railway */
+
 app.use(express.json());
 app.use(cors());
 
@@ -103,7 +105,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;  
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
